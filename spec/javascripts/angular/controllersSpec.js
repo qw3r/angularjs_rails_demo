@@ -1,8 +1,8 @@
-#= require jquery
-#= require angular.min
-#= require helpers/angular-mocks
-#= require services
-#= require controllers
+//= require jquery
+//= require angular.min
+//= require helpers/angular-mocks
+//= require services
+//= require controllers
 
 /* jasmine specs for controllers go here */
 describe('AngularDemo controllers', function() {
@@ -32,7 +32,7 @@ describe('AngularDemo controllers', function() {
     it('should create "photographers" model with 2 photographers fetched from xhr', function() {
       expect(ctrl.photographers).toEqualData([]);
       $browser.xhr.flush();
- 
+
       expect(ctrl.photographers).toEqualData([{name: 'Anne Geddes'},
                                               {name: 'Ansel Adams'}]);
     });
@@ -48,12 +48,12 @@ describe('AngularDemo controllers', function() {
       $browser.xhr.expectGET('photographers/3/galleries').respond([{title: 'Ghost Ranch'}]);
 
       ctrl = scope.$new(GalleriesCtrl);
- 
+
       expect(ctrl.photographer).toEqualData({});
       expect(ctrl.galleries).toEqualData([]);
 
       $browser.xhr.flush();
- 
+
       expect(ctrl.photographer).toEqualData({name: 'Anne Geddes'});
       expect(ctrl.galleries).toEqualData([{title: 'Ghost Ranch'}]);
     });
@@ -74,7 +74,7 @@ describe('AngularDemo controllers', function() {
       ctrl = scope.$new(PhotosCtrl);
 
       $browser.xhr.flush();
- 
+
       expect(ctrl.photographer).toEqualData({name: 'Anne Geddes'});
       expect(ctrl.gallery).toEqualData({title: 'Ghost Ranch'});
       expect(ctrl.photos).toEqualData([{title: 'My Photo', url: 'http://example.com/my_photo.jpg'}]);
